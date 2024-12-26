@@ -1,0 +1,21 @@
+
+# @uri = https://func-aifsrd-response-generator-nxt.azurewebsites.net/api
+@uri = http://localhost:7071/api
+@messageId = item1
+
+
+###
+
+# call HTTP trigger to compose a new message from the prompt only
+
+POST {{uri}}/MyHttpTrigger/item1
+content-type: application/json
+
+{
+    "id": "item1",
+    "sentiments": ["positive","neutral"]
+}
+
+
+###
+

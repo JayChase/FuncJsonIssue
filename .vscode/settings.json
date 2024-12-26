@@ -1,0 +1,14 @@
+{
+    "azureFunctions.deploySubpath": "bin/Release/net8.0/publish",
+    "azureFunctions.projectLanguage": "C#",
+    "azureFunctions.projectRuntime": "~4",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "publish (functions)",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#073519",
+        "titleBar.activeBackground": "#094B23",
+        "titleBar.activeForeground": "#F1FDF6",
+        "terminal.ansiRed": "#f2bb00",
+        "terminal.ansiBrightRed": "#f2bb00"
+    }
+}
