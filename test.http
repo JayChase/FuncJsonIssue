@@ -6,9 +6,7 @@
 
 ###
 
-# call HTTP trigger to compose a new message from the prompt only
-
-POST {{uri}}/MyHttpTrigger/item1
+POST {{uri}}/MessageFromBody/item1
 content-type: application/json
 
 {
@@ -16,6 +14,17 @@ content-type: application/json
     "sentiments": ["positive","neutral"]
 }
 
+###
+
+POST {{uri}}/MessageFromBinding/item1
+content-type: application/json
 
 ###
 
+POST {{uri}}/ManualDeserialization
+content-type: application/json
+
+{
+    "id": "item1",
+    "sentiments": ["positive","neutral"]
+}
