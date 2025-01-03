@@ -51,20 +51,18 @@ public class Message
 **MessageFromBinding.cs** (the http triggered function with the CosmosDb input binding)
 
 ```csharp
-public enum Sentiment
+[Function("MessageFromBinding")]
+public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "messageFromBinding/{messageId}")] HttpRequest req,
+    [CosmosDBInput(
+databaseName: "%COSMOS_DB_NAME%",
+containerName: "%COSMOS_DB_CONTAINER_NAME%",
+Connection  = "COSMOS_DB_CONNECTION",
+Id = "{messageId}",
+PartitionKey = "{messageId}")] Message cosmosDbMessage)
 {
-    Positive,
-    Neutral,
-    Negative
-}
-
-public class Message
-{
-
-    public string Id { get; set; } = string.Empty;
-
-    //[JsonConverter(typeof(JsonStringEnumConverter))]
-    public Sentiment? Sentiment { get; set; }
+    _logger.LogInformation("cosmosDbMessage received: {@cosmosDbMessage}", cosmosDbMessage);
+    _logger.LogInformation("C# HTTP trigger function processed a request.");
+    return new OkObjectResult("Welcome to Azure Functions!");
 }
 ```
 
