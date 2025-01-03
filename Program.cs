@@ -7,13 +7,21 @@ using System.Text.Json.Serialization;
 var host = new HostBuilder()
        .ConfigureFunctionsWebApplication((IFunctionsWorkerApplicationBuilder builder) =>
     {
-        builder.Services.Configure<JsonSerializerOptions>(jsonSerializerOptions =>
+        builder.Services.AddMvc().AddJsonOptions(options =>
         {
-            jsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-            jsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
-            jsonSerializerOptions.WriteIndented = true;
-            jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+            options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+            options.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
+            options.JsonSerializerOptions.WriteIndented = true;
+            options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
         });
+
+        // builder.Services.Configure<JsonSerializerOptions>(jsonSerializerOptions =>
+        // {
+        //     jsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        //     jsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
+        //     jsonSerializerOptions.WriteIndented = true;
+        //     jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+        // });
     })
     .ConfigureServices(services =>
     {

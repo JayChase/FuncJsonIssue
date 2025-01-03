@@ -6,7 +6,7 @@
 
 ###
 
-POST {{uri}}/MessageFromBody/item1
+POST {{uri}}/MessageFromBody
 content-type: application/json
 
 {
@@ -16,7 +16,7 @@ content-type: application/json
 
 ###
 
-POST {{uri}}/MessageFromBinding/item1
+POST {{uri}}/MessageFromBinding/{{messageId}}
 content-type: application/json
 
 ###
