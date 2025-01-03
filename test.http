@@ -11,7 +11,7 @@ content-type: application/json
 
 {
     "id": "item1",
-    "sentiments": ["positive","neutral"]
+    "sentiment": "positive"
 }
 
 ###
@@ -26,5 +26,12 @@ content-type: application/json
 
 {
     "id": "item1",
-    "sentiments": ["positive","neutral"]
+    "sentiment": "positive"
 }
+
+
+###
+
+POST https://func-aifsrd-conversational-ai-nxt.azurewebsites.net/api/createResponse/{messageId}/{respondAs}?code=p4or4KcH1scrhFmAa_TYzNJ4BLFe62elsckGwvE2rG5qAzFudQ0v9Q%3D%3D
+content-type: application/json
+

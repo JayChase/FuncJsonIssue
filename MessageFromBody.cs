@@ -19,7 +19,6 @@ public class MessageFromBody
     [Function("MessageFromBody")]
     public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "messageFromBody/{messageId}")] HttpRequest req, [FromBody] Message message)
     {
-        //_logger.LogInformation("cosmosDbMessage received: {@cosmosDbMessage}", cosmosDbMessage);
         _logger.LogInformation("Message received: {@Message}", message);
         _logger.LogInformation("C# HTTP trigger function processed a request.");
         return new OkObjectResult("Welcome to Azure Functions!");

@@ -1,5 +1,5 @@
-using System;
-using System.Collections.Generic;
+
+using System.Text.Json.Serialization;
 
 namespace FuncJsonIssue.Models;
 
@@ -15,6 +15,7 @@ public class Message
 
     public string Id { get; set; } = string.Empty;
 
-    public Sentiment[]? Sentiments { get; set; }
+    //[JsonConverter(typeof(JsonStringEnumConverter))]
+    public Sentiment? Sentiment { get; set; }
 }
 
